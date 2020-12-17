@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.hygino.workshopmongo.domain.Post;
 import com.hygino.workshopmongo.domain.User;
+import com.hygino.workshopmongo.dto.AuthorDTO;
 import com.hygino.workshopmongo.repository.PostRepository;
 import com.hygino.workshopmongo.repository.UserRepository;
 
@@ -34,12 +35,12 @@ public class Instantiation implements CommandLineRunner{
 		User maria = new User(null, "Maria Brown", "maria@gmail.com");
 		User alex = new User(null, "Alex Green", "alex@gmail.com");
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
-		
-		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para Coronel Vivida. Abraços!", maria);
-		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bomk dia", "Acordei cedo e fiz chimarrão!", maria);
-
-		
 		userRepository.saveAll(Arrays.asList(maria, alex,bob));
+		//salvar os usuários pra depois associar com os posts senão id fica nulo do user
+		
+		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para Coronel Vivida. Abraços!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bomk dia", "Acordei cedo e fiz chimarrão!", new AuthorDTO(maria));
+
 		postRepository.saveAll(Arrays.asList(post1, post2));
 	}
 	
