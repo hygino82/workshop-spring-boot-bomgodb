@@ -40,7 +40,7 @@ public class Instantiation implements CommandLineRunner{
 		//salvar os usuários pra depois associar com os posts senão id fica nulo do user
 		
 		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para Coronel Vivida. Abraços!", new AuthorDTO(maria));
-		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bomk dia", "Acordei cedo e fiz chimarrão!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei cedo e fiz chimarrão!", new AuthorDTO(maria));
 
 		CommentDTO c1 = new CommentDTO("Boa viagem guri", sdf.parse("21/03/2018"), new AuthorDTO(alex) );
 		CommentDTO c2 = new CommentDTO("Aproveite", sdf.parse("22/03/2018"), new AuthorDTO(bob) );
